@@ -12,6 +12,7 @@
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 #define DARK_BLUE "\033[34m"
+#define ORANGE "\033[38;5;208m"
 #define RESET   "\033[0m"
 
 typedef struct
@@ -245,9 +246,9 @@ void adaugare_film(MovieList Filme,MovieList *A,MovieList *B,int who)
         if(strcmp(name,"1")==0) break;
         if(poz>=0 && !check(Filme.filme[poz],*A) && !check(Filme.filme[poz],*B)) ok=1;
         else
-        if(poz>=0 && check(Filme.filme[poz],*A)) printf("Filmul ales este deja in acesta lista\n");
-        else if(poz>=0 && check(Filme.filme[poz],*B)) printf("Filmul ales este deja in lista %s\n",who==1? "filmelor de urmarit":"filmelor vizionate");
-        else printf("Filmul ales nu se afla in lista filmelor\n");
+        if(poz>=0 && check(Filme.filme[poz],*A)) printf( ORANGE "Filmul ales este deja in acesta lista\n" RESET);
+        else if(poz>=0 && check(Filme.filme[poz],*B)) printf( ORANGE"Filmul ales este deja in lista %s\n" RESET,who==1? "filmelor de urmarit":"filmelor vizionate");
+        else printf( RED "Filmul ales nu se afla in lista filmelor\n" RESET);
 
     }
     if(poz>=0)
